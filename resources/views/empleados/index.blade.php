@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <!-- lo que estamos haciendo es preguntar vea existe un mensaje
 creamos una variable de nombre mensaje y despues de esto hacemos
 que este mensaje se muestre solo si existe o si tiene informacion-->
@@ -44,4 +48,5 @@ que este mensaje se muestre solo si existe o si tiene informacion-->
 
         </tr>
         @endforeach
+        @endsection
     </table>
