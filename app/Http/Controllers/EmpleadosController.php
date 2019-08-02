@@ -43,6 +43,16 @@ class EmpleadosController extends Controller
      */
     public function store(Request $request)
     {
+        //aqui estoy validando todos los campos a validar, y el mensaje que me mostrara cierta informacion
+        $campos=[
+        'Nombre'=>'required|string|max:100',
+        'Apellido1'=>'required|string|max:100',
+        'Apellido2'=>'required|string|max:100',
+        'Correo'=>'required|email',
+        'Foto'=>'required|max:10000|mimes:jpeg,png,jpg',
+        ];
+        $Mensaje=["required"=>'El campo :attribute es requerido'];
+        $this->validate($request,$campos,$Mensaje);
         /*Con esto hacemos que se almacene toda 
         la informacion que llega al metodo store*/
     // $datosEmpleados=request()->all();

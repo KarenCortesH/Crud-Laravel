@@ -5,20 +5,20 @@
 <!-- lo que estamos haciendo es preguntar vea existe un mensaje
 creamos una variable de nombre mensaje y despues de esto hacemos
 que este mensaje se muestre solo si existe o si tiene informacion-->
-
+<div class="container">
 @if(Session::has('Mensaje')){{
     Session::get('Mensaje')
 }}
 @endif
-<a href="{{ url('empleados/create') }}">Agregar Empleado</a>
+<a href="{{ url('empleados/create') }}" class="btn btn-success">Agregar Empleado</a>
+<br/>
+<br/>
 <table class="table table-light">
     <thead class="thead-light">
     <tr>
     <th>#</th>
     <th>Foto</th>
-    <th>Nombre</th>
-    <th>Primer Apellido</th>
-    <th>Segundo Apellido</th>
+    <th>Nombre Completo</th>
     <th>Correo</th>
     <th>Acciones</th>
     </tr>
@@ -29,11 +29,9 @@ que este mensaje se muestre solo si existe o si tiene informacion-->
         <tr>
             <td>{{ $loop->iteration}}</td>
             <td>
-            <img src="{{ asset('storage').'/'. $empleado->Foto}}" alt="" width="200">
+            <img src="{{ asset('storage').'/'. $empleado->Foto}}" class="img-thumbnail img-fluid" alt="" width="200">
             </td>
-            <td>{{ $empleado->Nombre}}</td>
-            <td>{{ $empleado->Apellido1}}</td>
-            <td>{{ $empleado->Apellido2}}</td>
+            <td>{{ $empleado->Nombre}} {{ $empleado->Apellido1}} {{ $empleado->Apellido2}}</td>
             <td>{{ $empleado->Correo}}</td>
             <td>
             <a href="{{ url('/empleados/'.$empleado->id.'/edit') }}">
@@ -48,5 +46,6 @@ que este mensaje se muestre solo si existe o si tiene informacion-->
 
         </tr>
         @endforeach
-        @endsection
+        </div>
+        @endsection  
     </table>
