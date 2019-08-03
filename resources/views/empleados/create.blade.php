@@ -20,6 +20,7 @@
 </div>
 @endif
 Seccion para la Creacion de Empleado
+
 <form action="{{ url('/empleados')}}" class="form-horizontal"  method="post" enctype="multipart/form-data">
 {{ csrf_field() }}
 @include('empleados.form',['Modo'=>'crear'])

@@ -118,6 +118,19 @@ class EmpleadosController extends Controller
     //id  porque por medio de esta se recepciona toda la infomacion por medio del token
     public function update(Request $request, $id)
     {
+        $campos=[
+            'Nombre'=>'required|string|max:100',
+            'Apellido1'=>'required|string|max:100',
+            'Apellido2'=>'required|string|max:100',
+            'Correo'=>'required|email',
+                ];
+            if($request->hasFile('Foto'))
+            {
+                //lo que hace esta linea de codigo es validar si ya hay una fotografia
+               $campos+=['Foto'=>'required|max:10000|mimes:jpeg,png,jpg'];
+            }
+            $Mensaje=["required"=>'El campo :attribute es requerido'];
+            $this->validate($request,$campos,$Mensaje);
         //recepcionar la informacion y colocarla en una variable
         $datosEmpleados=request()->except(['_token','_method']);
         if($request->hasFile('Foto'))

@@ -19,9 +19,10 @@ Route::get('/', function () {
 Route::get('/empleados','EmpleadosController@index');
 Route::get('/empleados/create', 'EmpleadosController@create');
 */
+
 //para trabajar no de una en una 
 //creamos todas las rutas necesarias para acceder al controlador
-Route::resource('empleados', 'EmpleadosController');
+Route::resource('empleados', 'EmpleadosController')->middleware('auth');
 //todas las direcciones correspondientes a la autentificacion
 Auth::routes(['register'=>false,'reset'=>false]);
 
