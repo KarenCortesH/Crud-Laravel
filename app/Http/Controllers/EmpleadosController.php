@@ -19,7 +19,7 @@ class EmpleadosController extends Controller
         /*con esto estamos almacenando toda la informacion 
         pero paginada index=empleados*/
 
-        $datos ['empleados'] = Empleados::paginate(5);
+        $datos ['empleados'] = Empleados::paginate(1);
         return view('empleados.index',$datos);
         
     }
