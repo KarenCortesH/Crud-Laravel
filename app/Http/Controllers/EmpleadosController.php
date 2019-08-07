@@ -175,7 +175,7 @@ class EmpleadosController extends Controller
         pasandole el parametro id de la url*/
         Empleados::destroy($id);
         //Aqui estoy diciendole vea redireccioneme nuevamente a la pagina empleados
-        return \redirect('empleados')->with('Mensaje','Empleado Eliminado con Exito');
+        return redirect('empleados')->with('Mensaje','Empleado Eliminado con Exito');
        
         
     }
